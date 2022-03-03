@@ -16,7 +16,7 @@ import Erreur404 from './composants/Erreur404'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Container>
+      <Container className='conteneurBootstrap'>
         <EnTete />
         <Row>
           <Col md="1">
