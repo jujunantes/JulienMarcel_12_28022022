@@ -9,7 +9,6 @@ import DureeSessions from '../../composants/DureeSessions'
 import RadarActivite from '../../composants/RadarActivite'
 import CompletionObjectif from '../../composants/CompletionObjectif'
 
-
 function Accueil() {
 
   /**

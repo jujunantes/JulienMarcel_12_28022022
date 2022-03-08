@@ -355,7 +355,7 @@ body {
 }
 
 .conteneurSessions:hover > .filtreHover {
-  right: calc(-100% + ((((0.351 - var(--x)) / 0.178 ) * 100%)));
+  right: calc(-100% + (100% - ((var(--x) / var(--xRect)) * 100%)));
 }
 
 .conteneurRadar {

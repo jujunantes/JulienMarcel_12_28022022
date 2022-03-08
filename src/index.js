@@ -9,29 +9,44 @@ import Profil from './pages/Profil'
 import Reglage from './pages/Reglage'
 import Communaute from './pages/Communaute'
 import EnTete from './composants/EnTete'
-import BlocCentral from './composants/BlocCentral'
 import Erreur404 from './composants/Erreur404'
 
-// On récupère la position de la souris pour certains effets sur les graphiques
-// Code : https://dev.to/thalitag/step-by-step-guide-pass-your-cursor-position-using-css-variables-c7b
-const pos = { x : 0, y : 0 }
-const saveCursorPosition = function(x, y) {
-  pos.x = (x / window.innerWidth).toFixed(3)
-  pos.y = (y / window.innerHeight).toFixed(3)
-  document.documentElement.style.setProperty('--x', pos.x)
-  document.documentElement.style.setProperty('--y', pos.y)
+/**
+ * Save in html's style balise the position of the mouse relative to the element
+ * this function has been attached to by the following addEventListener.
+ * It makes possible to compute how much of the DureeSessions component
+ * has to be covered with its filter.
+ * (See CSS' ".filtreHover" and ".conteneurSessions:hover > .filtreHover".)
+ * @param {*} e 
+ */
+function sauvePositionSouris(e) {
+  const rect = e.target.getBoundingClientRect()
+  document.documentElement.style.setProperty('--x', (e.clientX - rect.left))
+  document.documentElement.style.setProperty('--xRect', (rect.right - rect.left))
 }
 
-document.addEventListener('mousemove', e => { saveCursorPosition(e.clientX, e.clientY); })
+/**
+ * when the DOM is finished loading, we check that the DureeSessions component has
+ * finished loading (by checking if "conteneurSessions") is now part of the DOM
+ * and, if so, we attach to it an event listener that saves the mouse's position when
+ * it hovers over this component.
+ */
+window.addEventListener("DOMContentLoaded", (event) => {
+  var interval = setInterval(function() {
+      if (document.getElementsByClassName('conteneurSessions').length > -1) {
+        clearInterval(interval)
+        document.getElementsByClassName('conteneurSessions')[0].addEventListener('mousemove', e => { sauvePositionSouris(e) })
+      }
+  }, 1000)
+})
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <div class="wrapper">
+    <div className="wrapper">
       <Container className='container-fluid conteneurBootstrap'>
         <EnTete />
         <Row>
-            <BlocCentral>
             <Routes>
               <Route path="/" element={<Accueil />} />
               <Route path="/profil" element={<Profil />} />
@@ -39,7 +54,6 @@ ReactDOM.render(
               <Route path="/communaute" element={<Communaute />} />
               <Route path="*" element={<Erreur404 />} />
             </Routes>
-            </BlocCentral>
         </Row>
       </Container>
     </div>
