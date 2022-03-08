@@ -7,8 +7,12 @@ export function useFetch(adresse) {
 
   useEffect(() => {
       
-    if (!adresse) return
-    //setLoading(true)
+    if (!adresse) {
+      seterreur(true)
+      setLoading(false)
+      return
+    }
+    
     const fetchData = async () => {
       try {
         const response = await fetch(adresse)

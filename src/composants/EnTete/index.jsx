@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom'
 import logoSportsee from '../../medias/LogoSportsee.svg'
 
 function EnTete() {
+
     return (
     <div className='ConteneurNavigation lg'>
         <div className='divLogo'>
@@ -11,10 +12,10 @@ function EnTete() {
         </div>
         
         <div className='menuHaut'>
-            <NavLink className="active" to='/' className='aEnTete'>Accueil</NavLink >
-            <NavLink className="active" to='/profil' className='aEnTete'>Profil</NavLink >
-            <NavLink className="active" to='/reglage' className='aEnTete'>Réglage</NavLink >
-            <NavLink className="active" to='/communaute' className='aEnTete'>Communauté</NavLink >
+            <NavLink className="active" to='/' >Accueil</NavLink >
+            <NavLink className="active" to='/profil' >Profil</NavLink >
+            <NavLink className="active" to='/reglage' >Réglage</NavLink >
+            <NavLink className="active" to='/communaute' >Communauté</NavLink >
         </div>
     </div>
     )

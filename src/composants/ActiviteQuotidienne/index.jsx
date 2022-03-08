@@ -20,17 +20,16 @@ function ActiviteQuotidienne(props) {
     if (erreur) {
         return <div>Une erreur s'est produite ! {erreur}</div>;
     }
-    console.log(donnees)
 
     const mesSessions = []
     if(!isLoading) {
         let i = 1
         for (const session of donnees.data.sessions) {
-        mesSessions.push({
-            calories: session.calories,
-            jour: i++, // Afin d'afficher les successions de jours plutôt que de dates
-            kilogramme: session.kilogram
-        })
+            mesSessions.push({
+                calories: session.calories,
+                jour: i++, // Afin d'afficher les successions de jours plutôt que de dates
+                kilogramme: session.kilogram
+            })
         }
     }
 
@@ -64,8 +63,7 @@ function ActiviteQuotidienne(props) {
                                     right: 4,
                                     left: 0,
                                     bottom: 8,
-                                }}
-                            >
+                                }}>
                         <CartesianGrid vertical={false} strokeDasharray="2 2" stroke="#dedede" />
                         <XAxis dy={15}
                             dataKey="jour"
@@ -100,7 +98,8 @@ function ActiviteQuotidienne(props) {
                             dataKey="kilogramme"
                             fill="#282D30" 
                             radius={[10, 10, 0, 0]}
-                            yAxisId="kg" />
+                            yAxisId="kg"
+                            />
                         <Bar
                             barSize={9}
                             dataKey="calories" 
