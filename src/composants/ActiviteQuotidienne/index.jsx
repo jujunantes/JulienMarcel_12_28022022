@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types'
 import { useFetch } from '../../utils/hooks'
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const MonToolTip = ({ active, payload }) => {
 // Source : https://codesandbox.io/s/tooltip-with-customized-content-lyxvs?file=/src/App.tsx
@@ -14,6 +15,11 @@ const MonToolTip = ({ active, payload }) => {
     return null
 }
 
+/**
+ * Displays the Daily Activities using a BarChart
+ * @param {object} props
+ * @returns {jsx}
+ */
 function ActiviteQuotidienne(props) {
     const { donnees, isLoading, erreur } = useFetch('http://localhost:3000/user/' + props.utilisateur + '/activity')
   
@@ -112,6 +118,10 @@ function ActiviteQuotidienne(props) {
             )}
         </div>
     )
+}
+
+ActiviteQuotidienne.propTypes = {
+    props: PropTypes.object
 }
 
 export default ActiviteQuotidienne

@@ -1,5 +1,11 @@
+import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react'
 
+/**
+ * Fetch asynchronsouly the data given at <adresse>
+ * @param {string} adresse
+ * @returns {jsx}
+ */
 export function useFetch(adresse) {
   const [donnees, setData] = useState([])
   const [isLoading, setLoading] = useState(true)
@@ -31,4 +37,8 @@ export function useFetch(adresse) {
     }
   }, [adresse])
   return { isLoading, donnees, erreur }
+}
+
+useFetch.propTypes = {
+  adresse: PropTypes.string
 }

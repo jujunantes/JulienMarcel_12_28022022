@@ -1,3 +1,7 @@
+/**
+ * Displays the side menu 
+ * @returns {jsx}
+ */
 function MenuLateral() {
     return (
         <div className="conteneurLateral">

@@ -1,3 +1,10 @@
+import PropTypes from 'prop-types'
+
+/**
+ * Displays an info card about a key number
+ * @param {object} props
+ * @returns {jsx}
+ */
 function CarteComposes(props) {
     return (
         <div className="carteComposes">
@@ -13,6 +20,10 @@ function CarteComposes(props) {
         </div>
     
     )
+}
+
+CarteComposes.propTypes = {
+    sessions: PropTypes.object
 }
 
 export default CarteComposes

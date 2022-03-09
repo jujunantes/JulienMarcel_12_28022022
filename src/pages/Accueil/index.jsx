@@ -12,8 +12,8 @@ import CompletionObjectif from '../../composants/CompletionObjectif'
 function Accueil() {
 
   /**
-   * Switches user datas back and forth users 12 and 18 when
-   * the visitor clicks on the background
+   * Switches user datas back and forth users 12 and 18when
+   * when the visitor clicks on the background
    * See, line 43 : onClick={changeUtilisateur}
    */
   const [monUtilisateur, changeMonUtilisateur] = useState('12')

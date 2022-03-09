@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useFetch } from '../../utils/hooks'
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
@@ -13,6 +14,11 @@ const MonToolTip = ({ active, payload }) => {
     return null
 }
 
+/**
+ * Displays the medium sessions durations using a LineChart
+ * @param {object} props
+ * @returns {jsx}
+ */
 function DureeSessions(props) {
     const { donnees, isLoading, erreur } = useFetch('http://localhost:3000/user/' + props.utilisateur + '/average-sessions')
   
@@ -90,6 +96,10 @@ function DureeSessions(props) {
             )}
         </div>
     )
+}
+
+DureeSessions.propTypes = {
+    props: PropTypes.object
 }
 
 export default DureeSessions

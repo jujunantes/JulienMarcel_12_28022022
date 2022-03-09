@@ -1,6 +1,12 @@
+import PropTypes from 'prop-types'
 import { useFetch } from '../../utils/hooks'
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts'
 
+/**
+ * Displays the Daily Goal Completion using a PieChart
+ * @param {object} props
+ * @returns {jsx}
+ */
 function CompletionObjectif(props) {
     const { donnees, isLoading, erreur } = useFetch('http://localhost:3000/user/' + props.utilisateur)
   
@@ -84,6 +90,10 @@ function CompletionObjectif(props) {
             )}
         </div>
     )
+}
+
+CompletionObjectif.propTypes = {
+    sessions: PropTypes.object
 }
 
 export default CompletionObjectif

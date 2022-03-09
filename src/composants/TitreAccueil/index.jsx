@@ -1,3 +1,10 @@
+import PropTypes from 'prop-types'
+
+/**
+ * Displays the main page's title and a welcoming message
+ * @param {object} props 
+ * @returns {jsx}
+ */
 function TitreAccueil(props) {
     return (
         <div>
@@ -8,6 +15,10 @@ function TitreAccueil(props) {
         </div>
     
     )
+}
+
+TitreAccueil.propTypes = {
+    props: PropTypes.object
 }
 
 export default TitreAccueil

@@ -27,11 +27,11 @@ function sauvePositionSouris(e) {
 
 /**
  * when the DOM is finished loading, we check that the DureeSessions component has
- * finished loading (by checking if "conteneurSessions") is now part of the DOM
+ * finished loading (by checking if "conteneurSessions" is now part of the DOM)
  * and, if so, we attach to it an event listener that saves the mouse's position when
  * it hovers over this component.
  */
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", () => {
   var interval = setInterval(function() {
       if (document.getElementsByClassName('conteneurSessions').length > -1) {
         clearInterval(interval)

@@ -1,6 +1,10 @@
 import { Link, NavLink } from 'react-router-dom'
 import logoSportsee from '../../medias/LogoSportsee.svg'
 
+/**
+ * Displays the header 
+ * @returns {jsx}
+ */
 function EnTete() {
 
     return (

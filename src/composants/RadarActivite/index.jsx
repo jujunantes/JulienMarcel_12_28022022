@@ -1,15 +1,20 @@
+import PropTypes from 'prop-types'
 import { useFetch } from '../../utils/hooks'
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts'
 
 const sujets = ['Cardio', 'Energie', 'Endurance', 'Force', 'Vitesse', 'Intensité']
 
+/**
+ * Displays a general activiyu chart using a RadarChart
+ * @param {object} props
+ * @returns {jsx}
+ */
 function RadarActivite(props) {
     const { donnees, isLoading, erreur } = useFetch('http://localhost:3000/user/' + props.utilisateur + '/performance')
   
     if (erreur) {
         return <div>Une erreur s'est produite ! {erreur}</div>;
     }
-
     
     let donneesRadar = []
     /**
@@ -62,6 +67,10 @@ function RadarActivite(props) {
             )}
         </div>
     )
+}
+
+RadarActivite.propTypes = {
+    props: PropTypes.object
 }
 
 export default RadarActivite
