@@ -43,8 +43,9 @@ function RadarActivite(props) {
                         <RadarChart 
                             cx="50%" 
                             cy="50%"                            
-                            outerRadius={85} //90
+                            outerRadius={85}
                             data={donneesRadar}
+                            className='radarchart'
                         >
                             <PolarGrid
                                 radialLines={false}

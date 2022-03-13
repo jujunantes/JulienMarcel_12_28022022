@@ -11,6 +11,7 @@ import Communaute from './pages/Communaute'
 import EnTete from './composants/EnTete'
 import Erreur404 from './composants/Erreur404'
 
+var rectangleX
 /**
  * Save in html's style balise the position of the mouse relative to the element
  * this function has been attached to by the following addEventListener.
@@ -20,10 +21,16 @@ import Erreur404 from './composants/Erreur404'
  * @param {*} e 
  */
 function sauvePositionSouris(e) {
-  const rect = e.target.getBoundingClientRect()
-  document.documentElement.style.setProperty('--x', (e.clientX - rect.left))
-  document.documentElement.style.setProperty('--xRect', (rect.right - rect.left))
+  document.documentElement.style.setProperty('--x', (e.clientX - rectangleX))
 }
+
+// Idea comming from : https://toruskit.com/blog/how-to-get-element-bounds-without-reflow/
+const observer = new IntersectionObserver((entry) => {
+  rectangleX = entry[0].boundingClientRect.left
+  document.documentElement.style.setProperty('--xRect', entry[0].boundingClientRect.width)
+
+  observer.disconnect()
+})
 
 /**
  * when the DOM is finished loading, we check that the DureeSessions component has
@@ -35,15 +42,21 @@ window.addEventListener("DOMContentLoaded", () => {
   var interval = setInterval(function() {
       if (document.getElementsByClassName('conteneurSessions').length > -1) {
         clearInterval(interval)
-        document.getElementsByClassName('conteneurSessions')[0].addEventListener('mousemove', e => { sauvePositionSouris(e) })
+        observer.observe(document.querySelectorAll(".conteneurSessions")[0])
+        window.addEventListener('mousemove', sauvePositionSouris)
       }
   }, 1000)
 })
 
+function metAJourTailleConteneurSession() {
+  observer.observe(document.querySelectorAll(".conteneurSessions")[0])
+}
+
+window.onresize = metAJourTailleConteneurSession
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <div className="wrapper">
       <Container className='container-fluid conteneurBootstrap'>
         <EnTete />
         <Row>
@@ -56,7 +69,6 @@ ReactDOM.render(
             </Routes>
         </Row>
       </Container>
-    </div>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

@@ -10,11 +10,6 @@ body {
   background: #e5e5e5;
 }
 
-.wrapper{
-  width: 1440px;
-  margin: 0 auto;
-}
-
 .conteneurBootstrap {
   background: white;
   padding: 0;
@@ -366,6 +361,10 @@ body {
   overflow: hidden;
 }
 
+.radarchart tspan{
+  width: 50%;
+}
+
 .conteneurScore {
   background: #fbfbfb;
   border-radius: 5px;
@@ -387,8 +386,12 @@ body {
 
 #scoreMilieux {
   position: absolute;
-  left: 38%;
-  top: 38%;
+  left: 20%;
+  top: 22%;
+  background: white;
+  border-radius: 50%;
+  width: 60%;
+  height: 55%;
 }
 
 #pScore {
@@ -400,6 +403,9 @@ body {
   text-align: center;
   color: #b0b3be;
   width: 50%;
+  position: relative;
+  left: 25%;
+  top: 25%;
 }
 
 #score {
@@ -413,4 +419,28 @@ body {
 .test {
   color: white;
   text-align: center;
+}
+
+/*
+  Réactif
+*/
+
+@media all and (max-width: 1400px) {
+  #scoreMilieux {
+    left: 15.5%;
+    top: 22.5%;
+    width: 65%;
+    height: 55%;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .valeurCompose {
+    font-size: 16px;
+  }
+  #scoreMilieux {
+    left: 8.5%;
+    top: 22%;
+    width: 80%;
+  }
 }
