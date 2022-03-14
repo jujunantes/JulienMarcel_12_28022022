@@ -8,6 +8,7 @@ import ActiviteQuotidienne from '../../composants/ActiviteQuotidienne'
 import DureeSessions from '../../composants/DureeSessions'
 import RadarActivite from '../../composants/RadarActivite'
 import CompletionObjectif from '../../composants/CompletionObjectif'
+//import CompletionObjectif2 from '../../composants/CompletionObjectif2'
 
 function Accueil() {
 
@@ -51,7 +52,8 @@ function Accueil() {
                 <Row className='deuxiemeRangee'>
                   <DureeSessions utilisateur={monUtilisateur} />
                   <RadarActivite utilisateur={monUtilisateur} />
-                  <CompletionObjectif utilisateur={monUtilisateur} />
+                  <CompletionObjectif utilisateur={monUtilisateur} /> {/* with RadialBarChart, as asked in the kanban */}
+                  {/*<CompletionObjectif2 utilisateur={monUtilisateur} />*/} {/* with PieChart : more elegant (no css hacks) */}
                 </Row>
               </Col>
               <Col lg="2" className='colonneComposes'>
