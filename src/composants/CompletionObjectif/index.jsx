@@ -66,7 +66,7 @@ function CompletionObjectif(props) {
 }
 
 CompletionObjectif.propTypes = {
-    sessions: PropTypes.object
+    utilisateur: PropTypes.string
 }
 
 export default CompletionObjectif

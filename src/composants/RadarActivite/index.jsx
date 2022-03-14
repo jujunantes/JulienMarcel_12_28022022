@@ -71,7 +71,7 @@ function RadarActivite(props) {
 }
 
 RadarActivite.propTypes = {
-    props: PropTypes.object
+    utilisateur: PropTypes.string
 }
 
 export default RadarActivite

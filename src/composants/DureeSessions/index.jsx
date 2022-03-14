@@ -99,7 +99,7 @@ function DureeSessions(props) {
 }
 
 DureeSessions.propTypes = {
-    props: PropTypes.object
+    utilisateur: PropTypes.string
 }
 
 export default DureeSessions

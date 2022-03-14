@@ -18,7 +18,8 @@ function TitreAccueil(props) {
 }
 
 TitreAccueil.propTypes = {
-    props: PropTypes.object
+    prenom: PropTypes.string,
+    texte: PropTypes.string
 }
 
 export default TitreAccueil

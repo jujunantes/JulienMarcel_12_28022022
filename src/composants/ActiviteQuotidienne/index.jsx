@@ -121,7 +121,7 @@ function ActiviteQuotidienne(props) {
 }
 
 ActiviteQuotidienne.propTypes = {
-    props: PropTypes.object
+    utilisateur: PropTypes.string
 }
 
 export default ActiviteQuotidienne

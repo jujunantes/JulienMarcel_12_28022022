@@ -23,7 +23,8 @@ function CarteComposes(props) {
 }
 
 CarteComposes.propTypes = {
-    sessions: PropTypes.object
+    valeur: PropTypes.string,
+    compose: PropTypes.string
 }
 
 export default CarteComposes
