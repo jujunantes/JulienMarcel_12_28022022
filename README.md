@@ -34,7 +34,7 @@ As mentioned on its project page, this API possesses four endpoints that we will
 - http://localhost:3000/user/${userId}/performance - retrieves a user's performance (energy, endurance, etc.).
 
 ## 3. Installing SportSee
-SportSee's installation is traightforward :
+SportSee's installation is straightforward :
 - download the sources from [its github repository](https://github.com/jujunantes/JulienMarcel_12_28022022).
 - then, in a console, enter the following commands :
 ```sh
@@ -51,5 +51,5 @@ npm run start
 ```
 
 ## 4. using SportSee
-SportSee will fetch users' data from the REST API and display them using verious charts.
+SportSee will fetch users' data from the REST API and display them using various charts.
 For demo purpose, you can switch from one user to the other by clicking on the white container of the page.
